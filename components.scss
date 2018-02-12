@@ -1,9 +1,9 @@
 .grid-float {
     @each $screen-prefix, $sizes in get-screens-map($grid-float-screens-support-skip-screens) {
         @media(min-width: get-screen-size($screen-prefix, min)) {
-            @for $i from 1 through $grid-columns {
-                .#{$screen-prefix}-#{$grid-column-class-prefix}-#{$i} {
-                    width: percentage($i/$grid-columns);
+            @each $prefix, $size in $grid-columns {
+                .#{$screen-prefix}-#{$grid-column-class-prefix}-#{$prefix} {
+                    width: $size;
                 }
             }
         }
